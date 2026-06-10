@@ -57,8 +57,19 @@ def _log_activity_to_r2(email, dashboard_name, ip_address):
             print(f"Error writing/uploading logs: {e}")
 
 
+DEMO_EMAILS = {'demo@admin.com'}
+NO_LOGGING = os.getenv("DISABLE_ACTIVITY_LOG", "false").lower() == "true"
+
 def log_activity(email, dashboard_name):
     if not email:
+        return
+
+    # Skip logging for demo accounts — prevents R2 operation abuse
+    if email in DEMO_EMAILS:
+        return
+
+    # Skip logging if disabled via env var (e.g. on demo spaces)
+    if NO_LOGGING:
         return
 
     # Extract client IP address safely from Flask request
