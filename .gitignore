@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.pyc
+
+
+# Environment
+.env
+venv/
+
+
+# Data
+data/raw/
+data/processed/
+
+
+# Export Files
+*.xlsx
+*.csv
+
+
+# Parquet Snapshots
+snapshot/*
+!snapshot/export_snapshots.py
+
+
+# Local Upload/Download Scripts
+upload_to_r2.py
+
+
+# -----------------------------------------------
+# SECRETS & SENSITIVE FILES - Never push these
+# -----------------------------------------------
+r2_secrets.txt
+*.secret
+*.secrets
+*.key
+*.keys
+secrets/
+credentials/
+
+
+# Backup & Scratch Text Files
+performance_py(25.05).txt
+*.txt
+
+
+# IDE
+.vscode/
+.idea/
+
+
+# OS
+.DS_Store
+Thumbs.db
+
+
+# Logs
+*.log
+
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+
+# HF / Cache
+.cache/
+
+
+# Temporary Files
+temp/
+tmp/
+
+
+# Backup Files
+*.bak
+*.old
