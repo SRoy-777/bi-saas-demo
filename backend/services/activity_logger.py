@@ -12,8 +12,8 @@ r2_lock = threading.Lock()
 ACCOUNT_ID = os.getenv("R2_ACCOUNT_ID")
 ACCESS_KEY = os.getenv("R2_ACCESS_KEY")
 SECRET_KEY = os.getenv("R2_SECRET_KEY")
-BUCKET_NAME = "orient-analytics-snapshots"
-FILE_KEY = "user_activity_log.csv"
+BUCKET_NAME = os.getenv("LOG_BUCKET_NAME", "orient-analytics-snapshots")
+FILE_KEY = os.getenv("LOG_FILE_KEY", "user_activity_log.csv")
 
 
 def get_r2_client():

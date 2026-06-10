@@ -68,21 +68,9 @@ def get_layout():
 
                 [
 
-                    dbc.Button(
+                    None,
 
-                        "Download Activity Logs",
-
-                        id="btn-download-logs",
-
-                        color="success",
-
-                        size="sm",
-
-                        className="me-2"
-
-                    ) if session.get('email') == 'demo@admin.com' else None,
-
-                    dcc.Download(id="download-logs-csv") if session.get('email') == 'demo@admin.com' else None,
+                    dcc.Download(id="download-logs-csv"),
 
                     html.A(
 
@@ -1131,8 +1119,8 @@ def download_activity_logs(n_clicks):
     if not n_clicks:
         return None
 
-    if session.get('email') != 'demo@admin.com':
-        return None
+    # Log download disabled on demo — always block
+    return None
 
     import boto3
     import pandas as pd
